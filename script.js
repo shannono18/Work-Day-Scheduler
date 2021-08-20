@@ -38,5 +38,3 @@ function usePlanner() {
     });
 }
 
-timeBlockColor();
-usePlanner();
