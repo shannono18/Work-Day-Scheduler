@@ -13,4 +13,4 @@ Bootstrap
 
 https://shannono18.github.io/Work-Day-Scheduler/ 
 
- 
+<img src="Workday Planner.png" alt="Deployed App">
