@@ -1,6 +1,6 @@
 
-
-let currentDate = moment().format('dddd, MMMM Do')
+function setPlanner
+var currentDate = text(moment().format('dddd, MMMM Do'))
 
 document.getElementById('currentDay').textContent = currentDate
 
@@ -28,37 +28,32 @@ for (let i = 8; i <= 17; i++) {
     function timeBlockColor() {
     var hour = moment().hours();
 
-    $(".time-block").each(function() {
-        var presentHour = parseInt($(this).attr("id"));
+setPlanner();
+var saveBtn = $(".saveBtn");
+    
+saveBtn.on("click", function() {
+    
+        var time = $(this).parent().attr("id");
+        var plan = $(this).siblings(".plan").val();
+    
+        localStorage.setItem(time, plan);
+});
+    
 
-        if (presentHour > hour) {
+function pastPresentFuture() {
+    hour = time.hours();
+    $(".time-block").each(function() {
+        var thisHour = parseInt($(this).attr("id"));
+
+        if (thisHour > hour) {
             $(this).addClass("future");
-        } else if (presentHour === hour) {
+        } else if (thisHour === hour) {
             $(this).addClass("present");
         } else {
             $(this).addClass("past"); {
         }
     })
-};
-var saveBtn = $(".saveBtn");
-
-saveBtn.on("click", function() {
-
-    var time = $(this).siblings(".hour").text();
-    var plan = $(this).siblings(".plan").val();
-
-    localStorage.setItem(time, plan);
-});
-
-function usePlanner() {
-
-    $(".hour").each(function() {
-        var presentHour = $(this).text();
-        var presentPlan = localStorage.getItem(presentHour);
-
-        if(presentPlan !== null) {
-            $(this).siblings(".plan").val(presentPlan);
-        }
-    });
 }
-}
+pastPresentFuture();
+
+
